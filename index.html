@@ -1,3 +1,58 @@
+<html>
+  <head>
+    <style>
+      <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .accordion {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .accordion-item {
+      background-color: #f1f1f1;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      background-color: #e0e0e0;
+      cursor: pointer;
+      padding: 16px;
+      font-weight: bold;
+      border: none;
+      text-align: left;
+      outline: none;
+      transition: background 0.3s;
+    }
+
+    .accordion-header:hover {
+      background-color: #d0d0d0;
+    }
+
+    .accordion-content {
+      padding: 16px;
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .accordion-item.active .accordion-content {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
 <h1>This page is a demonstration of embedding Blackthorn's Events</h1>
 <h2>Event Page Embed:</h2>
 <script src="https://events.blackthorn.io/loader" data-path="/As2sUcf7/5a2pAs5P1qr" height="400px" width="800px"></script>
@@ -16,3 +71,31 @@
   data-path="/en/As2sUcf7/2025-discover-tmu-open-house-dev-5a2pAs5P1qr/sessions?t=202511221100" height="400px" width="800px">
 </script>
 <p>Details: <a href="https://docs.blackthorn.io/docs/iframes-simple-embedding#sessions">Sessions Documentation</a></p>
+
+<div class="accordion">
+  <div class="accordion-item">
+    <button class="accordion-header">Ted Rogers School of Management</button>
+    <div class="accordion-content">
+      <p>Content for Ted Rogers School of Management goes here.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <button class="accordion-header">Faculty of Arts</button>
+    <div class="accordion-content">
+      <p>Content for Faculty of Arts goes here.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const headers = document.querySelectorAll('.accordion-header');
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      item.classList.toggle('active');
+    });
+  });
+</script>
+</body>
+</html>
